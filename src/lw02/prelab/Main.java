@@ -59,7 +59,8 @@ public class Main {
             System.out.println(customer[0] + ": " + customer[1]);
          }
          System.out.println("=== Failed Transactions ===");
-         for(String[] transaction : failed){
+         while(!failed.isEmpty()){
+            String[] transaction = failed.pop();
             System.out.println(transaction[0] + " " + transaction[1] + " " + transaction[2]);
          }
          sc.close();
