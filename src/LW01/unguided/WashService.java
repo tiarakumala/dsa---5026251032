@@ -1,4 +1,4 @@
-package unguided;
+package lw01.unguided;
 
 public abstract class WashService implements Billable{
     private String id;

@@ -1,4 +1,4 @@
-package unguided;
+package lw01.unguided;
 
 import java.util.Scanner;
 

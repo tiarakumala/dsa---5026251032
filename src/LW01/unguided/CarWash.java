@@ -1,4 +1,4 @@
-package unguided;
+package lw01.unguided;
 
 public class CarWash extends WashService{
     public CarWash(String id, int days, int units) {
