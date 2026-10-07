@@ -94,6 +94,10 @@ public class Main {
             System.out.println(product + ": " + inventory.get(product));
         }  
         System.out.println("Failed Sales: " + failed);
+
+        sc.close();
+        sc2.close();
+        sc3.close();
     } 
   
 }
