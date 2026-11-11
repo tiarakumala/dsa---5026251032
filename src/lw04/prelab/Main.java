@@ -1,4 +1,4 @@
-package lw04;
+package lw04.prelab;
 import java.util.*;
 
 
