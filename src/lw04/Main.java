@@ -1,51 +1,56 @@
 package lw04;
 import java.util.*;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(Main.class.getResourceAsStream("branches.txt"));
 
-        int size = sc.nextInt();
-        int values[] = new int[size];
-        for(int i = 0; i < size; i++){
-            values[i] = sc.nextInt();
+class Main{
+    public static void main(String[] args){
+        Scanner input = new Scanner(Main.class.getResourceAsStream("branches.txt"));
+
+        int n = input.nextInt();
+        int[] data = new int[n];
+
+        for(int i = 0; i<n; i++){
+            data[i] = input.nextInt();
         }
 
-        for(int i = 1; i < 4; i++){
-            int key = values[i];
-            int j = i-1;
-            while (j >= 0 && values[j] < key){
-                values[j+1] = values[j];
-                j = j-1;
-            }
-            values[j+1] = key;
-        }
-        for(int val : values){
-            System.out.print(val + " ");
-        }
-        System.out.println();
+        urut(data);
 
-        int targetSize = sc.nextInt();
-        int target[] = new int[targetSize];
-
-        for(int i = 0; i < targetSize; i++){
-            target[i] = sc.nextInt();
-        }
-
-        for(int i = 0; i < targetSize; i++){
-            int t = target[i];
-            int idx = -1;
-            for(int j = 0; j < size; j++){
-                if(values[j] == t){
-                    idx = j;
-                }
-            }
-            if(idx != -1){
-                System.out.println(t + ": FOUND at index " + idx);
-            } else {
-            System.out.println(t + ": NOT FOUND");
-            }
+        int k = input.nextInt();
+        for(int i = 0; i<k; i++){
+            int target = input.nextInt();
+            cariTarget(data, target);
         }
         
+
+
+
     }
+
+    static void urut(int[] data){
+        for(int i=1; i<=3; i++){
+            int temp = 0;
+            for(int j = i-1; j>=0; j--){
+                if(data[j+1] > data[j]){
+                    temp = data[j];
+                    data[j] = data[j+1];
+                    data[j+1] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(data));
+    }
+
+    static void cariTarget(int[] data, int target){
+        for(int i = 0; i < data.length; i++){
+            if(data[i] == target){
+                System.out.println(target + " : FOUND at index " + i);
+                return;
+            }
+        }
+        System.out.println(target + " : NOT FOUND");
+
+    }
+
+    
+    
 }
